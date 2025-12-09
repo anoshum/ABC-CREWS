@@ -466,7 +466,7 @@ def main():
     with tab1:
         st.header("1️. Market Summary & Price Trends ")
         plot_kpis(df)
-        st.subheader("Price vs. Size Relationship 📏")
+        st.subheader("Price vs. Size Relationship ")
         plot_price_vs_sqft(df)
 
     # --- TAB 2: BHK & Area Type Insights ---
@@ -510,7 +510,7 @@ def main():
 
     # --- TAB 4: Statistical Deep Dive ---
     with tab4:
-        st.header("4️⃣ Advanced Statistical Analysis 🔬")
+        st.header("4️. Advanced Statistical Analysis ")
 
         st.subheader("Correlation Analysis: Which Factors Drive Price? ")
         plot_correlation_heatmap(df)
