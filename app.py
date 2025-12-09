@@ -405,7 +405,7 @@ def main():
     set_styles()
     
     # --- HEADER ---
-    st.title("🏠 Bengaluru Housing Price Analyst 📊")
+    st.title(" Bengaluru Housing Price Analyst ")
     st.subheader("A World-Class, Interactive Dashboard for Price and Property Analysis")
     st.markdown("---")
 
@@ -414,7 +414,7 @@ def main():
     df = df_raw.copy()
 
     # --- SIDEBAR FILTERS ---
-    st.sidebar.header("⚙️ Market Filters")
+    st.sidebar.header(" Market Filters")
     
     # Filter 1: Location
     location_list = ['All'] + sorted(df['location'].unique().tolist())
@@ -455,23 +455,23 @@ def main():
 
     # --- MAIN DASHBOARD LAYOUT (TABS) ---
     tab1, tab2, tab3, tab4, tab5 = st.tabs([
-        "🚀 Market Overview", 
-        "🏠 BHK & Area Type Insights", 
-        "📍 Location & Pricing", 
-        "📈 Statistical Deep Dive", 
-        "🔍 Outlier Analysis"
+        "Market Overview", 
+        " BHK & Area Type Insights", 
+        " Location & Pricing", 
+        " Statistical Deep Dive", 
+        " Outlier Analysis"
     ])
 
     # --- TAB 1: Market Overview ---
     with tab1:
-        st.header("1️⃣ Market Summary & Price Trends 📊")
+        st.header("1️. Market Summary & Price Trends ")
         plot_kpis(df)
         st.subheader("Price vs. Size Relationship 📏")
         plot_price_vs_sqft(df)
 
     # --- TAB 2: BHK & Area Type Insights ---
     with tab2:
-        st.header("2️⃣ Property Characteristics Insights 🛋️")
+        st.header("2️. Property Characteristics Insights ")
         
         st.subheader("Price by BHK and Distribution")
         plot_price_by_bhk(df)
@@ -484,7 +484,7 @@ def main():
 
     # --- TAB 3: Location & Pricing ---
     with tab3:
-        st.header("3️⃣ Location-Based Analysis 🌍")
+        st.header("3️. Location-Based Analysis")
         
         st.subheader("Top/Bottom 10 Locations by Average Price")
         plot_location_prices(df)
@@ -535,7 +535,7 @@ def main():
 
     # --- TAB 5: Outlier Analysis ---
     with tab5:
-        st.header("5️⃣ Outlier and Data Quality Analysis 🚨")
+        st.header("5️. Outlier and Data Quality Analysis")
         
         st.info("The underlying data was cleaned using threshold filtering. This section analyzes remaining potential outliers based on statistical methods.")
 
