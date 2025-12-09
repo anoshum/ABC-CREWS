@@ -13,7 +13,7 @@ warnings.filterwarnings('ignore')
 # --- CONFIGURATION ---
 st.set_page_config(
     page_title="Bengaluru Housing Market Analysis",
-    page_icon="🏠",
+    page_icon=" ",
     layout="wide",
     initial_sidebar_state="expanded"
 )
@@ -124,7 +124,7 @@ def generate_insights(df):
     
     # --- Price Level Analysis ---
     avg_price = df['price'].mean()
-    insights.append(f"💰 The **Average Property Price** in the filtered market is **₹{avg_price:,.2f} Lakhs**.")
+    insights.append(f" The **Average Property Price** in the filtered market is **₹{avg_price:,.2f} Lakhs**.")
     
     # --- PPS Analysis ---
     city_avg_pps = df['price_per_sqft_new'].mean()
@@ -139,21 +139,21 @@ def generate_insights(df):
     
     pps_diff = ((top_pps_loc['avg_pps'] / city_avg_pps) - 1) * 100
     
-    insights.append(f"📈 **{top_pps_loc['location']}** is the most premium area, with an average PPS **{pps_diff:,.1f}% higher** than the overall market average.")
+    insights.append(f" **{top_pps_loc['location']}** is the most premium area, with an average PPS **{pps_diff:,.1f}% higher** than the overall market average.")
 
     # --- BHK Stability Analysis (Using IQR or Std Dev) ---
     bhk_std = df.groupby('BHK')['price'].std().sort_values(ascending=True)
     most_stable_bhk = bhk_std.index[0]
-    insights.append(f"🛋️ **BHK {most_stable_bhk}** category shows the **most stable pricing**, indicating lower price volatility and possibly a more saturated market segment.")
+    insights.append(f" **BHK {most_stable_bhk}** category shows the **most stable pricing**, indicating lower price volatility and possibly a more saturated market segment.")
 
     # --- Area Type Performance ---
     area_type_pps = df.groupby('area_type')['price_per_sqft_new'].mean().sort_values(ascending=False)
     best_area_type = area_type_pps.index[0]
-    insights.append(f"🏡 The **{best_area_type}** category offers the highest value for money, with the highest average Price Per Square Foot.")
+    insights.append(f" The **{best_area_type}** category offers the highest value for money, with the highest average Price Per Square Foot.")
     
     # --- Predictive Hinting ---
     best_value_loc = reliable_locations.sort_values('avg_pps', ascending=True).iloc[0]
-    insights.append(f"💡 **Investment Hint:** For the best price-to-sqft value, consider areas like **{best_value_loc['location']}**.")
+    insights.append(f" **Investment Hint:** For the best price-to-sqft value, consider areas like **{best_value_loc['location']}**.")
 
     return insights
 
@@ -189,13 +189,13 @@ def plot_kpis(df):
         """, unsafe_allow_html=True)
     
     # KPI 1: Total Properties
-    metric_card(col1, f"{total_properties:,}", "Total Properties", "", "🏡")
+    metric_card(col1, f"{total_properties:,}", "Total Properties", "", " ")
     # KPI 2: Average Price (Lakhs)
-    metric_card(col2, f"₹{avg_price:,.2f} L", "Avg. Price", "", "💸")
+    metric_card(col2, f"₹{avg_price:,.2f} L", "Avg. Price", "", "")
     # KPI 3: Average PPS
-    metric_card(col3, f"₹{avg_pps:,.0f}/sqft", "Avg. Price Per Sqft", "", "📈")
+    metric_card(col3, f"₹{avg_pps:,.0f}/sqft", "Avg. Price Per Sqft", "", "")
     # KPI 4: Total Locations
-    metric_card(col4, f"{total_locations:,}", "Total Locations", "", "📍")
+    metric_card(col4, f"{total_locations:,}", "Total Locations", "", "")
     st.markdown("---")
 
 
@@ -512,13 +512,13 @@ def main():
     with tab4:
         st.header("4️⃣ Advanced Statistical Analysis 🔬")
 
-        st.subheader("Correlation Analysis: Which Factors Drive Price? 🔑")
+        st.subheader("Correlation Analysis: Which Factors Drive Price? ")
         plot_correlation_heatmap(df)
         
-        st.subheader("Pairwise Relationship between Price, Sqft, and PPS 🔗")
+        st.subheader("Pairwise Relationship between Price, Sqft, and PPS ")
         plot_pairplot_analysis(df)
         
-        st.subheader("Data Scientist Insights & Predictive Hinting 💡")
+        st.subheader("Data Scientist Insights & Predictive Hinting ")
         insights = generate_insights(df)
         st.markdown(f"**Based on the current filtered data:**")
         
